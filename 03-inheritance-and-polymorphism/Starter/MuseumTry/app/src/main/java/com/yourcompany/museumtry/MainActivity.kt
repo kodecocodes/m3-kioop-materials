@@ -30,7 +30,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.AsyncImage
 import com.yourcompany.museumtry.ui.theme.MuseumTryTheme
 
-class Museum(
+class MuseumObject(
   val objectID: Int,
   val title: String,
   val objectURL: String,
@@ -45,7 +45,7 @@ class Museum(
   @Composable
   fun showImage() {
     return if (isPublicDomain) {
-      MuseumComposable(obj = this)
+      MuseumObjectComposable(obj = this)
     } else {
       WebViewComposable(url = objectURL)
     }
@@ -55,7 +55,7 @@ class Museum(
 // TODO: Create PublicDomain subclass
 
 val obj =
-  Museum(
+  MuseumObject(
     objectID = 436535,
     title = "Wheat Field with Cypresses",
     objectURL = "https://www.metmuseum.org/art/collection/search/436535",
@@ -82,7 +82,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MuseumComposable(obj: Museum) {
+fun MuseumObjectComposable(obj: MuseumObject) {
 
   Column(
     horizontalAlignment = Alignment.CenterHorizontally,
@@ -106,7 +106,7 @@ fun MuseumComposable(obj: Museum) {
     }
     AsyncImage(
       model = obj.primaryImageSmall,
-      contentDescription = "Museum Item Image",
+      contentDescription = "MuseumObject Item Image",
       contentScale = ContentScale.Fit,
       modifier = Modifier
         .padding(vertical = 32.dp)

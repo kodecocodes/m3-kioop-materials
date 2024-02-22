@@ -30,7 +30,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.AsyncImage
 import com.yourcompany.museumtry.ui.theme.MuseumTryTheme
 
-open class Museum(
+open class MuseumObject(
   val objectID: Int,
   val title: String,
   val objectURL: String,
@@ -52,21 +52,21 @@ class PublicDomain(
   creditLine: String,
   isPublicDomain: Boolean = true,
   val primaryImageSmall: String,
-) : Museum(objectID, title, objectURL, creditLine, isPublicDomain) {
+) : MuseumObject(objectID, title, objectURL, creditLine, isPublicDomain) {
 
   @SuppressLint("ComposableNaming")
   @Composable
   override fun showImage() {
-    return MuseumComposable(obj = this)
+    return MuseumObjectComposable(obj = this)
   }
 }
 
 // TODO: Create OnDisplay interface
 
-// TODO: Create a Museum subclass that conforms to OnDisplay interface
+// TODO: Create a MuseumObject subclass that conforms to OnDisplay interface
 
 val obj =
-  Museum(
+  MuseumObject(
     objectID = 436535,
     title = "Wheat Field with Cypresses",
     objectURL = "https://www.metmuseum.org/art/collection/search/436535",
@@ -100,7 +100,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MuseumComposable(obj: PublicDomain) {
+fun MuseumObjectComposable(obj: PublicDomain) {
 
   Column(
     horizontalAlignment = Alignment.CenterHorizontally,
@@ -124,7 +124,7 @@ fun MuseumComposable(obj: PublicDomain) {
     }
     AsyncImage(
       model = obj.primaryImageSmall,
-      contentDescription = "Museum Item Image",
+      contentDescription = "MuseumObject Item Image",
       contentScale = ContentScale.Fit,
       modifier = Modifier
         .padding(vertical = 32.dp)

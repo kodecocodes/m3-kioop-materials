@@ -31,7 +31,7 @@ import coil.compose.AsyncImage
 import com.yourcompany.museumtry.ui.theme.MuseumTryTheme
 
 // TODO: Declare properties in constructor
-class Museum {
+class MuseumObject {
 
   // TODO: Implement this method
   fun showImage() {
@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
 }
 
 //@Composable
-//fun MuseumComposable(obj: Museum) {
+//fun MuseumObjectComposable(obj: MuseumObject) {
 //
 //  Column(
 //    horizontalAlignment = Alignment.CenterHorizontally,
@@ -81,7 +81,7 @@ class MainActivity : ComponentActivity() {
 //    }
 //    AsyncImage(
 //      model = obj.primaryImageSmall,
-//      contentDescription = "Museum Item Image",
+//      contentDescription = "MuseumObject Item Image",
 //      contentScale = ContentScale.Fit,
 //      modifier = Modifier
 //        .padding(vertical = 32.dp)

@@ -31,13 +31,13 @@ import coil.compose.AsyncImage
 import com.yourcompany.museumtry.ui.theme.MuseumTryTheme
 
 // DONE: Implement Comparable Interface
-open class Museum(
+open class MuseumObject(
   val objectID: Int,
   val title: String,
   val objectURL: String,
   val creditLine: String,
   val isPublicDomain: Boolean
-): Comparable<Museum> {
+): Comparable<MuseumObject> {
 
   @SuppressLint("ComposableNaming")
   @Composable
@@ -45,7 +45,7 @@ open class Museum(
     return WebViewComposable(url = objectURL)
   }
 
-  override fun compareTo(other: Museum): Int {
+  override fun compareTo(other: MuseumObject): Int {
 //    return when {
 //      objectID > other.objectID -> 1
 //      objectID == other.objectID -> 0
@@ -56,7 +56,7 @@ open class Museum(
 }
 
 val obj =
-  Museum(
+  MuseumObject(
     objectID = 436535,
     title = "Wheat Field with Cypresses",
     objectURL = "https://www.metmuseum.org/art/collection/search/436535",
@@ -66,7 +66,7 @@ val obj =
   )
 
 val obj2 =
-  Museum(
+  MuseumObject(
     objectID = 11521,
     title = "Afternoon among the Cypress",
     objectURL = "https://www.metmuseum.org/art/collection/search/11521",
@@ -81,12 +81,12 @@ class PublicDomain(
   creditLine: String,
   isPublicDomain: Boolean = true,
   val primaryImageSmall: String,
-) : Museum(objectID, title, objectURL, creditLine, isPublicDomain) {
+) : MuseumObject(objectID, title, objectURL, creditLine, isPublicDomain) {
 
   @SuppressLint("ComposableNaming")
   @Composable
   override fun showImage() {
-    return MuseumComposable(obj = this)
+    return MuseumObjectComposable(obj = this)
   }
 }
 
@@ -105,7 +105,7 @@ interface OnDisplay {
   fun showMap(from: String, to: String)
 }
 
-// DONE: Create a Museum subclass that conforms to OnDisplay interface
+// DONE: Create a MuseumObject subclass that conforms to OnDisplay interface
 class OnDisplayObject(
   objectID: Int,
   title: String,
@@ -113,7 +113,7 @@ class OnDisplayObject(
   creditLine: String,
   isPublicDomain: Boolean = true,
   val galleryNum: String,
-) : Museum(objectID, title, objectURL, creditLine, isPublicDomain), OnDisplay {
+) : MuseumObject(objectID, title, objectURL, creditLine, isPublicDomain), OnDisplay {
   override val galleryNumber: String
     get() = this.galleryNum
 
@@ -154,7 +154,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MuseumComposable(obj: PublicDomain) {
+fun MuseumObjectComposable(obj: PublicDomain) {
 
   Column(
     horizontalAlignment = Alignment.CenterHorizontally,
@@ -178,7 +178,7 @@ fun MuseumComposable(obj: PublicDomain) {
     }
     AsyncImage(
       model = obj.primaryImageSmall,
-      contentDescription = "Museum Item Image",
+      contentDescription = "MuseumObject Item Image",
       contentScale = ContentScale.Fit,
       modifier = Modifier
         .padding(vertical = 32.dp)
