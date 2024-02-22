@@ -33,11 +33,11 @@ import com.yourcompany.museumtry.ui.theme.MuseumTryTheme
 // DONE: Declare properties in constructor
 class MuseumObject(
   val objectID: Int,
-  val title: String,
+  var title: String,
   val objectURL: String,
   val primaryImageSmall: String,
   val creditLine: String,
-  val isPublicDomain: Boolean
+  private val isPublicDomain: Boolean
 ) {
 
   // DONE: Implement this method
@@ -82,6 +82,8 @@ class MainActivity : ComponentActivity() {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
           // DONE: Call showImage()
+          val obj2 = obj_pd
+          obj2.title = "Sunflowers"
           obj_pd.showImage()
 //          obj.showImage()
         }
