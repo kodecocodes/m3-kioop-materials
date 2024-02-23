@@ -45,7 +45,7 @@ open class MuseumObject(
   }
 }
 
-class PublicDomain(
+class PublicDomainObject(
   objectID: Int,
   title: String,
   objectURL: String,
@@ -76,7 +76,7 @@ val obj =
   )
 
 val obj_pd =
-  PublicDomain(
+  PublicDomainObject(
     objectID = 436535,
     title = "Wheat Field with Cypresses",
     objectURL = "https://www.metmuseum.org/art/collection/search/436535",
@@ -100,7 +100,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MuseumObjectComposable(obj: PublicDomain) {
+fun MuseumObjectComposable(obj: PublicDomainObject) {
 
   Column(
     horizontalAlignment = Alignment.CenterHorizontally,

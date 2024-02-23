@@ -34,7 +34,7 @@ open class MuseumObject(
   val objectID: Int,
   val title: String,
   val objectURL: String,
-  // DONE: Move this property to PublicDomain
+  // DONE: Move this property to PublicDomainObject
 //  val primaryImageSmall: String,
   val creditLine: String,
   val isPublicDomain: Boolean
@@ -48,8 +48,8 @@ open class MuseumObject(
   }
 }
 
-// DONE: Create PublicDomain subclass
-class PublicDomain(
+// DONE: Create PublicDomainObject subclass
+class PublicDomainObject(
   objectID: Int,
   title: String,
   objectURL: String,
@@ -75,9 +75,9 @@ val obj =
     isPublicDomain = true
   )
 
-// DONE: Instantiate the same art object as a PublicDomain object
+// DONE: Instantiate the same art object as a PublicDomainObject object
 val obj_pd =
-  PublicDomain(
+  PublicDomainObject(
     objectID = 436535,
     title = "Wheat Field with Cypresses",
     objectURL = "https://www.metmuseum.org/art/collection/search/436535",
@@ -101,7 +101,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MuseumObjectComposable(obj: PublicDomain) {
+fun MuseumObjectComposable(obj: PublicDomainObject) {
 
   Column(
     horizontalAlignment = Alignment.CenterHorizontally,

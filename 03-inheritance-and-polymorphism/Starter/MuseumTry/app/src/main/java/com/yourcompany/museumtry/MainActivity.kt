@@ -34,7 +34,7 @@ class MuseumObject(
   val objectID: Int,
   val title: String,
   val objectURL: String,
-  // TODO: Move this property to PublicDomain
+  // TODO: Move this property to PublicDomainObject
   val primaryImageSmall: String,
   val creditLine: String,
   val isPublicDomain: Boolean
@@ -52,7 +52,7 @@ class MuseumObject(
   }
 }
 
-// TODO: Create PublicDomain subclass
+// TODO: Create PublicDomainObject subclass
 
 val obj =
   MuseumObject(
@@ -64,7 +64,7 @@ val obj =
     isPublicDomain = true
   )
 
-// TODO: Instantiate the same art object as a PublicDomain object
+// TODO: Instantiate the same art object as a PublicDomainObject object
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
