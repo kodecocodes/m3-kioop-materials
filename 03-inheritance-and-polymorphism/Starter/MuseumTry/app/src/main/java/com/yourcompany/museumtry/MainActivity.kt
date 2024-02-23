@@ -37,7 +37,7 @@ class MuseumObject(
   // TODO: Move this property to PublicDomainObject
   val primaryImageSmall: String,
   val creditLine: String,
-  val isPublicDomain: Boolean
+  private val isPublicDomain: Boolean
 ) {
 
   // TODO: Modify to always open a WebView

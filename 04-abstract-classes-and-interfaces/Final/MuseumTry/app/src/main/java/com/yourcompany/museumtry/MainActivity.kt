@@ -36,7 +36,7 @@ open class MuseumObject(
   val title: String,
   val objectURL: String,
   val creditLine: String,
-  val isPublicDomain: Boolean
+  private val isPublicDomain: Boolean
 ): Comparable<MuseumObject> {
 
   @SuppressLint("ComposableNaming")
