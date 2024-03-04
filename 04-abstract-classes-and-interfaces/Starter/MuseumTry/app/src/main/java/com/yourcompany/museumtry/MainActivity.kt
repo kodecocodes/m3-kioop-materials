@@ -30,6 +30,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.AsyncImage
 import com.yourcompany.museumtry.ui.theme.MuseumTryTheme
 
+// TODO: Implement Comparable Interface
 open class MuseumObject(
   val objectID: Int,
   val title: String,
@@ -61,10 +62,6 @@ class PublicDomainObject(
   }
 }
 
-// TODO: Create OnDisplay interface
-
-// TODO: Create a MuseumObject subclass that conforms to OnDisplay interface
-
 val obj =
   MuseumObject(
     objectID = 436535,
@@ -84,9 +81,28 @@ val obj_pd =
     creditLine = "Purchase, The Annenberg Foundation Gift, 1993",
   )
 
+val obj2 =
+  MuseumObject(
+    objectID = 11521,
+    title = "Afternoon among the Cypress",
+    objectURL = "https://www.metmuseum.org/art/collection/search/11521",
+    creditLine = "Gift of Mrs. Henrietta Zeile, 1909",
+    isPublicDomain = false
+  )
+
+// TODO: Create OnDisplay interface
+
+
+// TODO: Create a MuseumObject subclass that conforms to OnDisplay interface
+
+
+// TODO: Create OnDisplayObject instance
+
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    // TODO: Compare object based on objectID
+
     setContent {
       MuseumTryTheme {
         // A surface container using the 'background' color from the theme

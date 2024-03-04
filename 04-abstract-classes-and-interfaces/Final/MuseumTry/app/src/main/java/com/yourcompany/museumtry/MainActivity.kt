@@ -55,25 +55,6 @@ open class MuseumObject(
   }
 }
 
-val obj =
-  MuseumObject(
-    objectID = 436535,
-    title = "Wheat Field with Cypresses",
-    objectURL = "https://www.metmuseum.org/art/collection/search/436535",
-//    primaryImageSmall = "https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg",
-    creditLine = "Purchase, The Annenberg Foundation Gift, 1993",
-    isPublicDomain = true
-  )
-
-val obj2 =
-  MuseumObject(
-    objectID = 11521,
-    title = "Afternoon among the Cypress",
-    objectURL = "https://www.metmuseum.org/art/collection/search/11521",
-    creditLine = "Gift of Mrs. Henrietta Zeile, 1909",
-    isPublicDomain = false
-  )
-
 class PublicDomainObject(
   objectID: Int,
   title: String,
@@ -90,6 +71,16 @@ class PublicDomainObject(
   }
 }
 
+val obj =
+  MuseumObject(
+    objectID = 436535,
+    title = "Wheat Field with Cypresses",
+    objectURL = "https://www.metmuseum.org/art/collection/search/436535",
+//    primaryImageSmall = "https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg",
+    creditLine = "Purchase, The Annenberg Foundation Gift, 1993",
+    isPublicDomain = true
+  )
+
 val obj_pd =
   PublicDomainObject(
     objectID = 436535,
@@ -97,6 +88,15 @@ val obj_pd =
     objectURL = "https://www.metmuseum.org/art/collection/search/436535",
     primaryImageSmall = "https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg",
     creditLine = "Purchase, The Annenberg Foundation Gift, 1993",
+  )
+
+val obj2 =
+  MuseumObject(
+    objectID = 11521,
+    title = "Afternoon among the Cypress",
+    objectURL = "https://www.metmuseum.org/art/collection/search/11521",
+    creditLine = "Gift of Mrs. Henrietta Zeile, 1909",
+    isPublicDomain = false
   )
 
 // DONE: Create OnDisplay interface
@@ -112,16 +112,13 @@ class OnDisplayObject(
   objectURL: String,
   creditLine: String,
   isPublicDomain: Boolean = true,
-  val galleryNum: String,
+  override val galleryNumber: String,
 ) : MuseumObject(objectID, title, objectURL, creditLine, isPublicDomain), OnDisplay {
-  override val galleryNumber: String
-    get() = this.galleryNum
 
   override fun showMap(from: String, to: String) {
     galleryNumber.takeIf { it.isNotEmpty() } ?: return
     // implementation
   }
-
 }
 
 // DONE: Create OnDisplayObject instance
@@ -131,7 +128,7 @@ val obj_od =
     title = "Wheat Field with Cypresses",
     objectURL = "https://www.metmuseum.org/art/collection/search/436535",
     creditLine = "Purchase, The Annenberg Foundation Gift, 1993",
-    galleryNum = "822"
+    galleryNumber = "822"
   )
 
 class MainActivity : ComponentActivity() {
